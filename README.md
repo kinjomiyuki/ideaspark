@@ -1,5 +1,19 @@
 # IdeaSpark — デザインアイディアジェネレーター
 
+**Live:** https://kinjomiyuki.github.io/ideaspark/
+
+## Tech Stack
+
+| Area | Tech |
+|---|---|
+| UI | HTML / CSS / JavaScript(ビルド不要) |
+| Icons | Font Awesome |
+| Hosting | GitHub Pages |
+
+## Getting Started
+
+`index.html` をブラウザで開くだけで動きます。
+
 ## プロジェクト概要
 デザインの方向性が決まっていない段階で、プロのデザインアドバイザーとの**ヒアリング形式のチャット**を通じて、Web/アプリのデザインコンセプトを引き出すツール。
 
