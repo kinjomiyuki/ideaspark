@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IdeaSpark — デザインアイディアジェネレーター</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ========== MESH BG ORBS ========== -->
+  <div id="mesh-orb-1" aria-hidden="true"></div>
+  <div id="mesh-orb-2" aria-hidden="true"></div>
+  <div id="mesh-orb-3" aria-hidden="true"></div>
+  <div id="mesh-orb-4" aria-hidden="true"></div>
+
+  <!-- ========== HEADER ========== -->
+  <header id="app-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon"><i class="fa-solid fa-bolt-lightning"></i></span>
+        <span class="logo-text">IdeaSpark</span>
+      </div>
+      <nav class="header-nav">
+        <button class="nav-btn active" data-tab="generator">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <span>アイディア</span>
+        </button>
+        <button class="nav-btn" data-tab="saved">
+          <i class="fa-solid fa-bookmark"></i>
+          <span>保存済み</span>
+          <em class="badge" id="saved-badge">0</em>
+        </button>
+        <button class="nav-btn" data-tab="moodboard">
+          <i class="fa-solid fa-table-cells-large"></i>
+          <span>ムードボード</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========== MAIN ========== -->
+  <main id="app-main">
+
+    <!-- ===== TAB: GENERATOR (CHAT) ===== -->
+    <section id="tab-generator" class="tab-content active">
+      <div class="chat-layout">
+
+        <!-- チャットフィード -->
+        <div class="chat-feed" id="chat-feed">
+          <!-- JSでウェルカムメッセージが挿入される -->
+        </div>
+
+        <!-- 入力エリア（ヒアリング完了後の補足入力用） -->
+        <div class="chat-input-area" id="chat-input-area">
+          <div class="chat-input-wrap">
+            <textarea
+              id="chat-input"
+              class="chat-input"
+              placeholder=""
+              rows="1"
+              maxlength="200"
+              disabled
+            ></textarea>
+            <div class="chat-input-footer">
+              <span class="char-count" id="char-count-chat">0 / 200</span>
+              <button class="chat-send-btn" id="chat-send-btn" disabled>
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== TAB: SAVED ===== -->
+    <section id="tab-saved" class="tab-content">
+      <div class="saved-header">
+        <h2><i class="fa-solid fa-bookmark"></i> 保存済みアイディア</h2>
+        <button class="btn-danger" id="btn-clear-saved">
+          <i class="fa-solid fa-trash"></i> すべて削除
+        </button>
+      </div>
+      <div class="ideas-grid" id="saved-grid"></div>
+      <div class="empty-state" id="saved-empty">
+        <i class="fa-regular fa-bookmark fa-3x"></i>
+        <p>保存されたアイディアはまだありません</p>
+        <p class="empty-sub">チャットで生成したカードをブックマークしてください</p>
+      </div>
+    </section>
+
+    <!-- ===== TAB: MOODBOARD ===== -->
+    <section id="tab-moodboard" class="tab-content">
+      <div class="moodboard-header">
+        <h2><i class="fa-solid fa-table-cells-large"></i> ムードボード</h2>
+        <p class="moodboard-sub">保存したアイディアをビジュアルで整理</p>
+      </div>
+      <div class="moodboard-controls">
+        <div class="chip-group" id="moodboard-filter-chips">
+          <button class="chip active" data-value="all">すべて</button>
+        </div>
+      </div>
+      <div class="moodboard-canvas" id="moodboard-canvas"></div>
+      <div class="empty-state" id="moodboard-empty">
+        <i class="fa-solid fa-table-cells-large fa-3x"></i>
+        <p>保存済みアイディアがありません</p>
+        <p class="empty-sub">チャットでアイディアをブックマークすると表示されます</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== TOAST ========== -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ========== MODAL ========== -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" id="modal-detail">
+      <button class="modal-close" id="modal-close"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
